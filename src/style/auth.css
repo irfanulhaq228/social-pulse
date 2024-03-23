@@ -1,0 +1,61 @@
+.auth-main{
+    background-image: linear-gradient(to right, var(--main-color-1), var(--main-color-2));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 30px 0;
+}
+
+.auth-main .auth-sec{
+    background-color: rgba(255, 255, 255, 0.521);
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 50px;
+}
+
+.auth-main .auth-sec .header .heading{
+    font-size: 30px;
+    font-weight: 700;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--main-text-color);
+}
+
+.auth-main .auth-sec .content .input{
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 10px;
+    outline: 1px solid var(--main-color-2);
+    background-color: rgba(255, 255, 255, 0.521);
+    font-weight: 600;
+}
+
+.auth-main .auth-sec .content .input:focus{
+    outline: 1px solid var(--main-color-1);
+}
+
+.auth-main .auth-sec .content .button{
+    height: 35px;
+    padding: 0 10px;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, var(--main-color-1), var(--main-color-2));
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.auth-main .auth-sec .content .button:hover{
+    scale: 1.005;
+}
+
+.auth-main .auth-sec .content .button:active{
+    scale: 0.995;
+}
