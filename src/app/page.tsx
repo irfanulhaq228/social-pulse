@@ -1,8 +1,7 @@
 export default function Home() {
   return (
     <>
-    <h1>Social Pulse</h1>
-
+      <h1>Social Pulse</h1>
     </>
   );
 }
