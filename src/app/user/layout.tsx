@@ -1,38 +1,39 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import axios, { AxiosError } from "axios";
-
-import ImageSlider from "@/components/ImageSlider";
-import Navbar from "@/components/Navbar";
+import { useRouter } from "next/navigation";
+import React, { useState, useEffect } from "react";
 
 interface UserResponse {
   user: string | null;
   error: AxiosError | null;
 }
 
-export default function Home() {
-  const [ isSuccess, setIsSuccess ] = useState<boolean>(true);
+export default function UserLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const router = useRouter();
   useEffect(() => {
     (async () => {
       const { user, error } = await getUser();
-      if(user){
-        router.push("/user");
+      if (error) {
+        router.push("/");
         return;
       }
-      setIsSuccess(false);
+      setIsSuccess(true);
     })();
   }, [router]);
-  if (isSuccess) {
+  if (!isSuccess) {
     return <p>Loading ...</p>;
   }
   return (
-    <div className="background p-5 flex flex-col gap-5">
-      <Navbar />
-      <ImageSlider height="400px" roundSize="xl" />
-    </div>
+    <main>
+      <header>Navigation</header>
+      {children}
+    </main>
   );
 }
 

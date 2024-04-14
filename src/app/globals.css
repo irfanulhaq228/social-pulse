@@ -20,6 +20,10 @@ html, body{
     background-color: rgba(0, 0, 0, 0.158);
 }
 
+.background{
+    background-image: linear-gradient(to right, var(--main-color-1), var(--main-color-2));
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -32,3 +36,8 @@ html, body{
     background: var(--main-color-1);
     border-radius: 10px;
 }
+
+
+/* =====================main-page */
+
+

@@ -22,13 +22,11 @@ const Page = () => {
     initialValues,
     validationSchema: signInSchema,
     onSubmit: async (values, action) => {
-      console.log("login values ===> ", values);
       try {
         const { data } = await axios.post("/api/auth/login", values);
-        console.log("====> login response ==> ", data);
         alert(JSON.stringify(data));
         action.resetForm();
-        router.push("/");
+        router.push("/user");
       } catch (e) {
         const error = e as AxiosError;
         console.log("=====> login error ==> ", error);
