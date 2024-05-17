@@ -20,10 +20,6 @@ html, body{
     background-color: rgba(0, 0, 0, 0.158);
 }
 
-.background{
-    background-image: linear-gradient(to right, var(--main-color-1), var(--main-color-2));
-}
-
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -38,6 +34,13 @@ html, body{
 }
 
 
-/* =====================main-page */
+/* =====================navbar-styling */
+
+.navbar{
+    height: 70px;
+    border-bottom: 0.5px solid white;
+    display: flex;
+    align-items: center;
+}
 
 
