@@ -5,14 +5,17 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
+import Cookies from 'js-cookie';
 
 import { useFormik } from "formik";
 import { toast } from "react-toastify";
+import { useRouter } from 'next/navigation'
 
 import { signUpSchema } from "@/Schema";
 import logo from "../../../../public/image/social-pulse-logo-transparent.png";
 
 const Page = () => {
+  const router = useRouter()
   interface FormikValues {
     firstName: string;
     lastName: string;
@@ -37,7 +40,9 @@ const Page = () => {
     onSubmit: async (values, action) => {
       const loadingToastId = toast.loading("Loading...");
       try {
-        await axios.post("/api/auth/signup", values);
+        const response = await axios.post("/api/auth/signup", values);
+        const { token } = response.data;
+        Cookies.set('auth', token, { expires: 1 });
         toast.update(loadingToastId, {
           render: "User Registered Successfully",
           type: "success",
@@ -47,6 +52,7 @@ const Page = () => {
           draggable: true,
         });
         action.resetForm();
+        return router.push('/', { scroll: false })
       } catch (error: any) {
         if (error.response.data.error.errors) {
           return toast.update(loadingToastId, {

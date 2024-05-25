@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-// import Navbar from "@/components/Navbar";
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,10 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="flex justify-center">
       <body className="flex flex-col w-full 2xl:w-[1500px]">
-        {/* <Navbar /> */}
         <ToastContainer theme="colored" pauseOnHover={false} />
         {children}
       </body>
     </html>
   );
-}
+};
